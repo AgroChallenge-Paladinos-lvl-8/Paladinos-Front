@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
+import TableContainer from "@mui/material/TableContainer";
 import IconButton from "@mui/material/IconButton";
 
 import SvgIcon from "@mui/material/SvgIcon";
@@ -18,8 +19,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import React from "react";
-
 import { Link } from "react-router-dom";
+
 import PageContent, { PageBreadcrumbs } from "../../components/page-content";
 import { useDebounce } from "../../hooks/useDebounce";
 import Estoque from "../../models/estoque";
@@ -69,7 +70,7 @@ const Estoques: React.FC = () => {
 
             <Button
               component={Link}
-              to="/Estoques/novo"
+              to="/estoques/novo"
               color="primary"
               variant="contained"
               startIcon={<AddIcon />}
@@ -103,47 +104,49 @@ const Estoques: React.FC = () => {
             />
           </Stack>
 
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Local</TableCell>
-                <TableCell>Produto</TableCell>
-                <TableCell>Data Validade</TableCell>
-                <TableCell>Estoque</TableCell>
-                <TableCell />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {Estoques.length &&
-                Estoques.map((Estoque) => (
-                  <TableRow key={Estoque.id}>
-                    <TableCell>{Estoque.local}</TableCell>
-                    <TableCell>{Estoque.produto}</TableCell>
-                    <TableCell>
-                      {Estoque.dataValidade?.toLocaleDateString()}
-                    </TableCell>
-                    <TableCell>{Estoque.quantidade}</TableCell>
-                    <TableCell align="right">
-                      <IconButton
-                        title="Editar"
-                        component={Link}
-                        to={{
-                          pathname: `/Estoques/${Estoque.id}`,
-                        }}
-                      >
-                        <EditIcon />
-                      </IconButton>
-                      <IconButton
-                        title="Editar"
-                        onClick={() => removerEstoque(Estoque.id)}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
+          <TableContainer sx={{ maxHeight: "calc(100vh - 380px)" }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Local</TableCell>
+                  <TableCell>Produto</TableCell>
+                  <TableCell>Data Validade</TableCell>
+                  <TableCell>Estoque</TableCell>
+                  <TableCell />
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {Estoques.length &&
+                  Estoques.map((Estoque) => (
+                    <TableRow key={Estoque.id}>
+                      <TableCell>{Estoque.local}</TableCell>
+                      <TableCell>{Estoque.produto}</TableCell>
+                      <TableCell>
+                        {Estoque.dataValidade?.toLocaleDateString()}
+                      </TableCell>
+                      <TableCell>{Estoque.quantidade}</TableCell>
+                      <TableCell align="right">
+                        <IconButton
+                          title="Editar"
+                          component={Link}
+                          to={{
+                            pathname: `/Estoques/${Estoque.id}`,
+                          }}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton
+                          title="Editar"
+                          onClick={() => removerEstoque(Estoque.id)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Stack>
       </Paper>
     </PageContent>

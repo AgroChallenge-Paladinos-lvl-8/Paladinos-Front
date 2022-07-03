@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
+import TableContainer from "@mui/material/TableContainer";
 import IconButton from "@mui/material/IconButton";
 
 import SvgIcon from "@mui/material/SvgIcon";
@@ -101,46 +102,47 @@ const Produtos: React.FC = () => {
               label="Pesquisar Produtos"
             />
           </Stack>
-
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Nome</TableCell>
-                <TableCell>Código</TableCell>
-                <TableCell>Fabricante</TableCell>
-                <TableCell>Fornecedor</TableCell>
-                <TableCell />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {produtos.length &&
-                produtos.map((produto) => (
-                  <TableRow key={produto.id}>
-                    <TableCell>{produto.nome}</TableCell>
-                    <TableCell>{produto.codigo}</TableCell>
-                    <TableCell>{produto.fabricante}</TableCell>
-                    <TableCell>{produto.fornecedor}</TableCell>
-                    <TableCell align="right">
-                      <IconButton
-                        title="Editar"
-                        component={Link}
-                        to={{
-                          pathname: `/produtos/${produto.id}`,
-                        }}
-                      >
-                        <EditIcon />
-                      </IconButton>
-                      <IconButton
-                        title="Editar"
-                        onClick={() => removerProduto(produto.id)}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
+          <TableContainer sx={{ maxHeight: "calc(100vh - 380px)" }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Nome</TableCell>
+                  <TableCell>Código</TableCell>
+                  <TableCell>Fabricante</TableCell>
+                  <TableCell>Fornecedor</TableCell>
+                  <TableCell />
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {produtos.length &&
+                  produtos.map((produto) => (
+                    <TableRow key={produto.id}>
+                      <TableCell>{produto.nome}</TableCell>
+                      <TableCell>{produto.codigo}</TableCell>
+                      <TableCell>{produto.fabricante}</TableCell>
+                      <TableCell>{produto.fornecedor}</TableCell>
+                      <TableCell align="right">
+                        <IconButton
+                          title="Editar"
+                          component={Link}
+                          to={{
+                            pathname: `/produtos/${produto.id}`,
+                          }}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton
+                          title="Editar"
+                          onClick={() => removerProduto(produto.id)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Stack>
       </Paper>
     </PageContent>
