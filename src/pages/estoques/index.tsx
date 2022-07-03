@@ -104,7 +104,9 @@ const Estoques: React.FC = () => {
             />
           </Stack>
 
-          <TableContainer sx={{ maxHeight: "calc(100vh - 380px)" }}>
+          <TableContainer
+            sx={{ minHeight: "250px", maxHeight: "calc(100vh - 380px)" }}
+          >
             <Table stickyHeader aria-label="sticky table">
               <TableHead>
                 <TableRow>

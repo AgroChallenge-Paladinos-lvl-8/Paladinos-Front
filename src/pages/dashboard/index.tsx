@@ -53,6 +53,7 @@ const Dashboard: React.FC = () => {
 
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 2, md: 4 }}
+          justifyContent="space-between"
         >
           <DashCard />
           <DashCard />

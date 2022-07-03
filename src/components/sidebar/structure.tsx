@@ -1,29 +1,30 @@
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import MapIcon from "@mui/icons-material/Map";
+import PaidIcon from "@mui/icons-material/Paid";
+import HomeIcon from "@mui/icons-material/Home";
+import CalculateIcon from "@mui/icons-material/Calculate";
 
 const structure = [
-  { label: "Dashboard", link: "/", icon: <LocalOfferIcon /> },
+  { label: "Dashboard", link: "/", icon: <HomeIcon /> },
   {
     label: "Produtos",
     link: "/produtos",
-    icon: <InventoryIcon />,
+    icon: <LocalOfferIcon />,
   },
   {
     label: "Estoque",
     link: "/estoques",
-    icon: <CloudUploadIcon />,
+    icon: <InventoryIcon />,
   },
   {
     label: "Financeiro",
     link: "/financeiro",
-    icon: <MapIcon />,
+    icon: <PaidIcon />,
   },
   {
     label: "Cálculo de insumo",
-    link: "/calculo-yarn insumo",
-    icon: <MapIcon />,
+    link: "/calculo-insumo",
+    icon: <CalculateIcon />,
   },
 ];
 export default structure;
