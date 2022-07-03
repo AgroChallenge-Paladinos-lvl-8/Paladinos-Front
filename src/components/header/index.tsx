@@ -48,7 +48,7 @@ const Header: React.FC = () => {
           }}
         >
           <img
-            src="logo.png"
+            src="/img/logo.png"
             alt="TechAgro"
             height="40px"
             style={{ verticalAlign: "bottom" }}
