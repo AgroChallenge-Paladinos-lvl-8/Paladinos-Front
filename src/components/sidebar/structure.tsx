@@ -12,7 +12,7 @@ const structure = [
   },
   {
     label: "Estoque",
-    link: "/estoque",
+    link: "/estoques",
     icon: <CloudUploadIcon />,
   },
   {

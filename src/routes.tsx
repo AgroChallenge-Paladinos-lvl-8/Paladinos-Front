@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes as ReactRoutes } from "react-router-dom";
 import Layout from "./components/layout";
 import Error404 from "./pages/error404";
 import Dashboard from "./pages/dashboard";
+import Produtos from "./pages/produtos";
+import Estoques from "./pages/estoques";
 
 export const Routes: React.FC = () => {
   return (
@@ -11,6 +13,8 @@ export const Routes: React.FC = () => {
       <ReactRoutes>
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/produtos" element={<Produtos />} />
+          <Route path="/estoques" element={<Estoques />} />
           <Route path="*" element={<Error404 />} />
         </Route>
       </ReactRoutes>
